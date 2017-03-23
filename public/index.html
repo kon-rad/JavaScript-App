@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>JavaScript Application</title>
+        <meta name="description" content="Javascript application">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="../node_modules/jquery/dist/jquery.min.js"></script> 
+        <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="js/script.js"></script> 
+    </head>
+    <body>
+
+	    <div class="container-fluid">
+	      <div class="row">
+	        <div  ng-controller="main-controller" class="col-xs-12 col-md-8 col-md-offset-2">
+	          <h1>
+	            Photo Display
+              {{ message }}
+	          </h1>
+              <p></p>
+    	        <div id="photos" class="col-xs-12 row-flex photos">
+    	        </div>
+            </div>
+	      </div>
+	    </div>
+
+       <!-- Modal -->
+
+        <div class="modal fade" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+
+                <div class="modal-content">
+                  <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                          <span aria-hidden="true">&times;</span>
+                          <span class="sr-only">Close</span>
+                        </button>
+                    <h4 class="modal-title" id="modalLabel">Image</h4>
+                  </div>
+                  <div class="modal-body">
+                    <img src="" class="imagepreview" style="width: 100%;" >
+                    <form>
+                      <div class="form-group">
+                        <label for="message-text" class="control-label">Description:</label>
+                        <textarea class="form-control" id="description-text"></textarea>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="save-description">Save description</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

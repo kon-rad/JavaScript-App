@@ -1,0 +1,44 @@
+.actionable-container {
+    margin: 120px auto 180px auto;
+    max-width: 711px;
+    background-color:white;
+    height: 110px;
+    border: 1px solid #818181;
+    border-radius: 2px;
+}
+.img-thumbnail {
+  margin: 10px;
+  background-color: black;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.image {
+	text-align: center;
+	color: #000000;
+}
+.image:hover {
+	text-decoration: none;
+	color: #000000;
+}
+#photos {
+  margin-top: 50px;
+}
+.row-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex-basis: 100%;
+}
+
+@media screen and (min-width: 800px) {
+  .column {
+    flex-basis: 20%;
+  }
+}
