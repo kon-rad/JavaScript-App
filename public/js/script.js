@@ -1,27 +1,7 @@
- 
 
 $(document).ready(function() {
 
   var url = "https://jsonplaceholder.typicode.com/photos";
-
-  $.getJSON(url, function(json) {
-
-    var photosOutput = "";
-
-    $.each(json,function(index, element) {
-      photosOutput += '<a href="#" id="image'+ element.id + '" class="column image show-fullsize">';
-      photosOutput += '<div class="img-thumbnail" style="background-image: url(' + element.thumbnailUrl
-      + ');"></div><h5>' + element.title +'</h5><p class="img-description"></p></a>';
-
-      if(index >= 24) {
-        return false;
-      } 
-    });
-
-    $('#photos').html(photosOutput);
-          getData();
-
-  });
 
   // Modal Script
 
@@ -42,6 +22,9 @@ $(document).ready(function() {
     imageUrl = imageUrl.replace(/150/, 600);
     $('.imagepreview').attr('src', decodeURI(imageUrl));
 
+    var text = $(this).find("p").text();
+    $('#description-text').text(text);
+
     // Show modal
     $('#imagemodal').modal('show');
   });
@@ -56,19 +39,21 @@ $(document).ready(function() {
 
     // save in local storage
     localStorage.setItem(idData.imageID, description);
+    $('#description-text').val("");
+    $('#imagemodal').modal('toggle');
   })
 
   // get data from local storage
   function getData() {
     for(var i = 0; i < localStorage.length; i++) {
+      // console.log("inside forloop");
       var imageID = localStorage.key(i);
       var description = localStorage.getItem(imageID);
       var id = '#' + imageID;
-
+      // console.log(id);
       $(id).find('p').text(description);
     }
   }
-
-    getData();
+  setTimeout(function() {getData(); }, 400);
   
 })

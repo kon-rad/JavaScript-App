@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en" ng-app>
+<html class="no-js" lang="en" ng-app="photoViewer">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,19 +10,27 @@
         <link rel="stylesheet" href="css/style.css">
         <script src="../node_modules/jquery/dist/jquery.min.js"></script> 
         <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="../node_modules/angular/angular.min.js"></script>
         <script src="js/script.js"></script> 
+<!--         <script src="../server/models/storage.js"></script>  -->
+        <script src="../server/controllers/main-controller.js"></script>
     </head>
     <body>
 
 	    <div class="container-fluid">
 	      <div class="row">
-	        <div  ng-controller="main-controller" class="col-xs-12 col-md-8 col-md-offset-2">
+	        <div  ng-controller="MainController" class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
 	          <h1>
 	            Photo Display
               {{ message }}
 	          </h1>
-              <p></p>
-    	        <div id="photos" class="col-xs-12 row-flex photos">
+            <div>{{error}}</div>
+    	        <div id="photos" class="row-flex photos">
+                <a ng-repeat="photo in photos | limitTo:25" id="image{{photo.id}}" href="#" class="column image show-fullsize">
+                <div class="img-thumbnail" style="background-image: url({{ photo.thumbnailUrl}});"></div>
+                <h5>{{photo.title}}</h5>
+                <p class="img-description">{{desc}}</p>
+                </a>              
     	        </div>
             </div>
 	      </div>
