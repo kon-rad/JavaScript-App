@@ -6,7 +6,7 @@ $(document).ready(function() {
   // Modal Script
 
   $('#photos').on('click', 'a.show-fullsize', function() {
-    // Set the title dynamically
+    // Set the title
     var title = $(this).find("h5").text();
     $('.modal-title').text(title);
     var id = $(this).attr("id");

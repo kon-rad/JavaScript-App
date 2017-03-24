@@ -19,10 +19,8 @@
 
 		$scope.message = "with AngularJS";
 		
-
 	};
 
 	app.controller("MainController", MainController);
-
 
 }());
